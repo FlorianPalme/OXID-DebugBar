@@ -5,7 +5,7 @@ Implementiert eine DebugBar in den OXID Shop.
 ## Installation
 
 ```
-composer require florianpalme/debugbar
+composer require florianpalme/oxid-debugbar
 ```
 
 

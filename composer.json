@@ -1,10 +1,10 @@
 {
-  "name": "florianpalme/debugbar",
+  "name": "florianpalme/oxid-debugbar",
   "description": "Integriert eine erweiterbare DebugBar in den OXID eShop.",
   "type": "oxideshop-module",
   "keywords": ["oxid", "modules", "eShop", "florianpalme", "debug"],
   "homepage": "https://www.florian-palme.de",
-  "license": "MIT",
+  "license": "GPL-3.0-only",
   "authors": [
     {
       "name": "Florian Palme",
