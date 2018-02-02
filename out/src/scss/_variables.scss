@@ -1,0 +1,25 @@
+/**
+ * Farben
+ */
+$base-color: #0B3C5D !default;
+$nav-color: #1D2731 !default;
+$text-color: #fff !default;
+$highlight-color: #D9B310 !default;
+$border-color:#328cc1;
+
+// Header-Codes
+$header-code-colors: (
+  c100: #ccc,
+  c200: #1c8020,
+  c300: #c66e0a,
+  c400: #be0e01,
+  c500: #690a01
+) !default;
+
+
+/**
+ * Text-Größen
+ */
+$debugbar-nav: 14px !default;
+$headline-size: 18px !default;
+$content-tabber-size: 14px !default;

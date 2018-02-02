@@ -1,0 +1,27 @@
+{
+  "name": "florianpalme/debugbar",
+  "description": "Integriert eine erweiterbare DebugBar in den OXID eShop.",
+  "type": "oxideshop-module",
+  "keywords": ["oxid", "modules", "eShop", "florianpalme", "debug"],
+  "homepage": "https://www.florian-palme.de",
+  "license": [
+    "MIT"
+  ],
+
+  "autoload": {
+    "psr-4": {
+      "FlorianPalme\\DebugBar\\": "../../../source/modules/fp/debugbar"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+
+  "extra": {
+    "oxideshop": {
+      "target-directory": "fp/debugbar"
+    }
+  },
+  "require": {
+    "guzzlehttp/guzzle": "~6.0"
+  }
+}
