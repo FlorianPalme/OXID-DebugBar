@@ -49,6 +49,14 @@ composer require florianpalme/debugbar
 - Auflistung aller aktiven Module
 
 
+## Geplante Funktionen
+- Farb-Schemen
+- DebugBar erweiterbar durch Dritt-Module
+- Anzeige auf IP beschränken
+- Fehlende Übersetzungen auflisten
+- ...
+
+
 # Changelog
 All notable changes to this project will be documented in this file.
 
