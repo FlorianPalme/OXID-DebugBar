@@ -2,6 +2,13 @@
 
 Implementiert eine DebugBar in den OXID Shop.
 
+## Installation
+
+```
+composer require florianpalme/debugbar
+```
+
+
 ## Tabs
 
 
