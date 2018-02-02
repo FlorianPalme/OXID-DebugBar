@@ -101,6 +101,14 @@ TABLE;
                 $row .= $this->dumpVariable($param);
             } elseif (is_string($param)) {
                 $row .= '"' . htmlspecialchars($param) . '"';
+            } elseif (is_object($param)) {
+                $row .= $this->dumpVariable($param);
+            } elseif (is_null($param)) {
+                $row .= '<i>null</i>';
+            } elseif ($param === false) {
+                $row .= '<i>false</i>';
+            } elseif ($param === true) {
+                $row .= '<i>true</i>';
             } else {
                 $row .= $param;
             }
