@@ -4,8 +4,14 @@
   "type": "oxideshop-module",
   "keywords": ["oxid", "modules", "eShop", "florianpalme", "debug"],
   "homepage": "https://www.florian-palme.de",
-  "license": [
-    "MIT"
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Florian Palme",
+      "email": "info@florian-palme.de",
+      "homepage": "https://www.florian-palme.de/",
+      "role": "Developer"
+    }
   ],
 
   "autoload": {
@@ -22,6 +28,7 @@
     }
   },
   "require": {
+    "php": ">=7.0.0",
     "guzzlehttp/guzzle": "~6.0"
   }
 }
