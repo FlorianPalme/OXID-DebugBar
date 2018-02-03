@@ -1,0 +1,26 @@
+{
+  "name": "florianpalme-oxid-debugbar",
+  "version": "1.0.0",
+  "description": "Integriert eine erweiterbare DebugBar in den OXID eShop.",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:FlorianPalme/OXID-DebugBar.git"
+  },
+  "keywords": [
+    "oxid",
+    "debug"
+  ],
+  "author": "Florian Palme",
+  "license": "GPL-3.0-only",
+  "homepage": "https://github.com/FlorianPalme/OXID-DebugBar#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-sass": "^2.0.0",
+    "load-grunt-tasks": "^3.5.2"
+  }
+}
