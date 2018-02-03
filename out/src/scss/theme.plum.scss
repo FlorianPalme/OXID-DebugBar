@@ -1,0 +1,14 @@
+@import "variables";
+@import "mixins";
+
+/**
+ * Farben
+ */
+$base-color: #1a0315;
+$border-color:#535353;
+$highlight-color: #88d317;
+$nav-color: #6e3667;
+$text-color: #fff;
+
+
+@import "debugbar";

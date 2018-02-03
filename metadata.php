@@ -54,5 +54,12 @@ $aModule = [
     ],
 
     'settings' => [
+        [
+            'group' => 'debugbarMain',
+            'name' => 'debugbarTheme',
+            'type' => 'select',
+            'value' => 'default',
+            'constraints' => 'default|forrest|plum|fortressofsolitude|herbs',
+        ],
     ],
 ];

@@ -1,0 +1,269 @@
+@charset "UTF-8";
+/**
+ * Farben
+ */
+/**
+ * Text-Größen
+ */
+#oxiddebugbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: auto;
+  min-height: 1px;
+  background: #0B3C5D;
+  z-index: 9000; }
+  #oxiddebugbar * {
+    font-family: Helvetica, Arial, sans-serif; }
+    #oxiddebugbar *.material-icons {
+      font-family: 'Material Icons'; }
+  #oxiddebugbar > .tabs {
+    list-style: none;
+    display: block;
+    width: 100%;
+    height: 30px;
+    background: #1D2731;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #328cc1; }
+    #oxiddebugbar > .tabs > li {
+      line-height: 30px;
+      padding: 0 15px;
+      color: #fff;
+      cursor: pointer;
+      position: relative;
+      float: left;
+      font-size: 14px;
+      -webkit-touch-callout: none;
+      /* iOS Safari */
+      -webkit-user-select: none;
+      /* Safari */
+      -khtml-user-select: none;
+      /* Konqueror HTML */
+      -moz-user-select: none;
+      /* Firefox */
+      -ms-user-select: none;
+      /* Internet Explorer/Edge */
+      user-select: none;
+      /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */ }
+      #oxiddebugbar > .tabs > li:hover {
+        color: #D9B310;
+        background: #0B3C5D; }
+        #oxiddebugbar > .tabs > li:hover::before {
+          display: block;
+          bottom: 0; }
+      #oxiddebugbar > .tabs > li.active {
+        background: #0B3C5D; }
+        #oxiddebugbar > .tabs > li.active::before {
+          display: none; }
+      #oxiddebugbar > .tabs > li::after {
+        content: '';
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 1px;
+        background: #328cc1;
+        position: absolute; }
+      #oxiddebugbar > .tabs > li::before {
+        content: '';
+        bottom: -1px;
+        left: 0;
+        right: 0;
+        background: #328cc1;
+        position: absolute;
+        height: 1px;
+        display: none; }
+      #oxiddebugbar > .tabs > li.http span[class^="header-"] {
+        padding: 0 15px;
+        margin-left: -15px;
+        position: relative;
+        display: inline-block;
+        top: 0;
+        height: 30px;
+        margin-right: 15px; }
+      #oxiddebugbar > .tabs > li.http span[class^="header-1"] {
+        background: #ccc; }
+      #oxiddebugbar > .tabs > li.http span[class^="header-2"] {
+        background: #1c8020; }
+      #oxiddebugbar > .tabs > li.http span[class^="header-3"] {
+        background: #c66e0a; }
+      #oxiddebugbar > .tabs > li.http span[class^="header-4"] {
+        background: #be0e01; }
+      #oxiddebugbar > .tabs > li.http span[class^="header-5"] {
+        background: #690a01; }
+      #oxiddebugbar > .tabs > li.close {
+        display: none;
+        border: 0;
+        padding: 0;
+        height: 30px;
+        width: 30px;
+        float: right;
+        position: relative;
+        opacity: 1;
+        color: #328cc1; }
+        #oxiddebugbar > .tabs > li.close .material-icons {
+          position: absolute;
+          top: 2px;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          margin: auto;
+          font-size: 26px;
+          text-shadow: none; }
+        #oxiddebugbar > .tabs > li.close:hover {
+          color: #D9B310; }
+        #oxiddebugbar > .tabs > li.close:hover {
+          background: none; }
+        #oxiddebugbar > .tabs > li.close:before, #oxiddebugbar > .tabs > li.close:after {
+          display: none; }
+  #oxiddebugbar.open > .tabs > li.close {
+    display: block; }
+  #oxiddebugbar > .contents > .content {
+    max-height: 400px;
+    display: none;
+    padding: 15px;
+    color: #fff;
+    overflow: auto; }
+    #oxiddebugbar > .contents > .content a {
+      color: #fff;
+      text-decoration: underline; }
+      #oxiddebugbar > .contents > .content a:hover {
+        text-decoration: none; }
+    #oxiddebugbar > .contents > .content .tabber > .tabs {
+      width: 100%;
+      margin: 0 0 15px;
+      padding: 0;
+      list-style: none;
+      display: block;
+      height: 42px; }
+      #oxiddebugbar > .contents > .content .tabber > .tabs > li {
+        display: block;
+        float: left;
+        padding: 0 15px;
+        border: 1px solid #328cc1;
+        border-left-width: 0;
+        background: #1D2731;
+        cursor: pointer;
+        height: 42px;
+        line-height: 42px;
+        font-size: 14px;
+        -webkit-touch-callout: none;
+        /* iOS Safari */
+        -webkit-user-select: none;
+        /* Safari */
+        -khtml-user-select: none;
+        /* Konqueror HTML */
+        -moz-user-select: none;
+        /* Firefox */
+        -ms-user-select: none;
+        /* Internet Explorer/Edge */
+        user-select: none;
+        /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */ }
+        #oxiddebugbar > .contents > .content .tabber > .tabs > li.active {
+          background: #D9B310; }
+        #oxiddebugbar > .contents > .content .tabber > .tabs > li:first-child {
+          border-left-width: 1px; }
+    #oxiddebugbar > .contents > .content .tabber > .contents {
+      display: block; }
+      #oxiddebugbar > .contents > .content .tabber > .contents > .content {
+        display: none; }
+        #oxiddebugbar > .contents > .content .tabber > .contents > .content.active {
+          display: block; }
+    #oxiddebugbar > .contents > .content .headline {
+      font-size: 18px;
+      color: #D9B310;
+      margin-top: 30px;
+      margin-bottom: 10px; }
+      #oxiddebugbar > .contents > .content .headline:first-child {
+        margin-top: 0; }
+    #oxiddebugbar > .contents > .content .novalues {
+      padding: 15px;
+      border: 5px dashed #328cc1;
+      border-radius: 5px; }
+    #oxiddebugbar > .contents > .content .table {
+      border: 1px solid #328cc1; }
+      #oxiddebugbar > .contents > .content .table th {
+        background: #328cc1;
+        border-bottom: 0;
+        border-left: 1px solid #328cc1; }
+        #oxiddebugbar > .contents > .content .table th:first-child {
+          border-left: none; }
+      #oxiddebugbar > .contents > .content .table td {
+        border-color: #328cc1;
+        border-left: 1px solid #328cc1; }
+        #oxiddebugbar > .contents > .content .table td:first-child {
+          border-left: none; }
+      #oxiddebugbar > .contents > .content .table.params td {
+        font-family: Menlo, Monaco, Consolas, "Courier New", monospace; }
+    #oxiddebugbar > .contents > .content .badge {
+      border-radius: 0;
+      background: #1D2731;
+      border: 1px solid #328cc1;
+      text-align: center;
+      padding: 0;
+      margin-right: 15px;
+      margin-bottom: 15px; }
+      #oxiddebugbar > .contents > .content .badge > span {
+        display: block; }
+        #oxiddebugbar > .contents > .content .badge > span.value {
+          font-size: 28px;
+          padding: 12px 10px 10px; }
+        #oxiddebugbar > .contents > .content .badge > span.title {
+          background: #328cc1;
+          padding: 3px 5px;
+          line-height: 18px; }
+      #oxiddebugbar > .contents > .content .badge.phpversion > .value > span, #oxiddebugbar > .contents > .content .badge.bitversion > .value > span {
+        opacity: 0.5;
+        font-size: 60%; }
+      #oxiddebugbar > .contents > .content .badge.icon > .value {
+        height: 50px;
+        position: relative; }
+        #oxiddebugbar > .contents > .content .badge.icon > .value > .material-icons {
+          font-size: 160%;
+          position: absolute;
+          top: 2px;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          margin: 0; }
+    #oxiddebugbar > .contents > .content .profiler {
+      margin-top: 15px; }
+      #oxiddebugbar > .contents > .content .profiler .profile .title {
+        display: block;
+        width: 30%;
+        float: left;
+        border: 1px solid #328cc1;
+        border-right: 0;
+        background: #1D2731;
+        padding: 10px;
+        margin-bottom: 10px;
+        height: 42px; }
+      #oxiddebugbar > .contents > .content .profiler .profile .bars {
+        display: block;
+        width: 70%;
+        float: left;
+        height: 43px; }
+        #oxiddebugbar > .contents > .content .profiler .profile .bars span {
+          height: 21px;
+          display: block;
+          border: 1px solid #328cc1;
+          padding: 0 5px;
+          background: #fff;
+          color: #1D2731;
+          min-width: 20px;
+          overflow: hidden; }
+          #oxiddebugbar > .contents > .content .profiler .profile .bars span.executions {
+            border-top: 0;
+            background: #D9B310;
+            color: #0B3C5D; }
+      #oxiddebugbar > .contents > .content .profiler .profile:hover .bars span {
+        min-width: 160px; }
+  #oxiddebugbar .clearfix::after {
+    display: block;
+    content: "";
+    clear: both; }
+
+/*# sourceMappingURL=theme.default.css.map */
