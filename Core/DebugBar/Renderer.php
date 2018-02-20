@@ -7,10 +7,16 @@
 namespace FlorianPalme\DebugBar\Core\DebugBar;
 
 
+use OxidEsales\Eshop\Core\Model\ListModel;
+
 class Renderer
 {
     /**
      * Erstellt eine Tabelle
+     *
+     * @param array $columns
+     * @param array $data
+     * @param string $class
      *
      * @return string
      */
@@ -33,16 +39,7 @@ class Renderer
             $body .= '</tr>';
         }
 
-        $table = <<<TABLE
-<table class="table $class">
-<thead>
-    $head
-</thead>
-<tbody>
-    $body
-</tbody>
-</table>
-TABLE;
+        $table = $this->getTable($head, $body, $class);
 
         return $table;
     }
@@ -50,6 +47,10 @@ TABLE;
 
     /**
      * Erstellt eine Parameter-Tabelle
+     *
+     * @param array $columns
+     * @param array $data
+     * @param string $class
      *
      * @return string
      */
@@ -62,8 +63,60 @@ TABLE;
         $head .= '</tr>';
 
         $body = $this->createParameterTableBody($data);
+        $table = $this->getTable($head, $body, $class);
 
-        $table = <<<TABLE
+        return $table;
+    }
+
+
+    /**
+     * Erstellt eine Tabelle von einem ListModel
+     *
+     * @param array $columns
+     * @param ListModel $list
+     * @param array $data
+     * @param string $class
+     *
+     * @return string
+     */
+    public function createTableFromList($columns, ListModel $list, $data, $class = '')
+    {
+        $head = '<tr>';
+        foreach ($columns as $column) {
+            $head .= "<th>$column</th>";
+        }
+        $head .= '</tr>';
+
+        $body = '';
+        foreach ($list->getArray() as $item) {
+            $body .= '<tr>';
+
+            foreach ($data as $var) {
+                $var = is_callable($var) ? call_user_func($var, $item) : $item->$var;
+                $body .= "<td>$var</td>";
+            }
+
+            $body .= '</tr>';
+        }
+
+        $table = $this->getTable($head, $body, $class);
+
+        return $table;
+    }
+
+
+    /**
+     * Erstellt eine Tabelle mit thead und tbody
+     *
+     * @param string $head
+     * @param string $body
+     * @param string $class
+     *
+     * @return string
+     */
+    public function getTable($head, $body, $class = '')
+    {
+       return <<<TABLE
 <table class="table $class">
 <thead>
     $head
@@ -73,8 +126,6 @@ TABLE;
 </tbody>
 </table>
 TABLE;
-
-        return $table;
     }
 
 
