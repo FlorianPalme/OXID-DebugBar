@@ -44,9 +44,20 @@ class DebugBar
             /** @var ModuleList $moduleList */
             $moduleList = oxNew(ModuleList::class);
 
-            /** @var Module $module */
-            foreach ($moduleList as $module) {
-                // TODO: Elemente durch andere Module integrieren
+            foreach ($moduleList->getActiveModuleInfo() as $id => $path) {
+                /** @var Module $module */
+                $module = oxNew(Module::class);
+                $module->load($id);
+
+                if ($moduleElements = $module->getInfo('debugbar')) {
+                    if (!is_array($moduleElements)) continue;
+
+                    foreach ($moduleElements as $elementId => $elementClass) {
+                        if (class_exists($elementClass)) {
+                            $elements[$elementId] = $elementClass;
+                        }
+                    }
+                }
             }
 
             // Element-Klassen laden
