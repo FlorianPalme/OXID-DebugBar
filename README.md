@@ -49,12 +49,25 @@ composer require florianpalme/oxid-debugbar
 - Auflistung aller aktiven Module
 
 
-## Geplante Funktionen
-- Farb-Schemen
-- DebugBar erweiterbar durch Dritt-Module
-- Anzeige auf IP beschränken
-- Fehlende Übersetzungen auflisten
-- ...
+## Tabs durch Dritt-Module
+Um eigene Tabs hinzuzufügen, muss die eigene metadata.php um das Array ```debugbar``` erweitert werden.
+Der Tab wird durch eine ID sowie die Klassen-Definition bestimmt, zum Beispiel:
+```php
+/**
+ * Modul-Informationen
+ */
+$aModule = [
+    'id'			=>	'fpcronjobmanager',
+    ...
+    /** Debugbar Erweiterungen */
+    'debugbar' => [
+        'fpcronjobmanager_cronjobs' => 'FlorianPalme\OXIDCronjobManager\Core\DebugBar\Elements\Cronjobs',
+    ],
+];
+```
+
+Die Klasse muss das Interface ```\FlorianPalme\DebugBar\Core\DebugBar\Elements\Element``` integrieren.
+Beispiele für die Tab-Integration findest du im [Repository](https://github.com/FlorianPalme/OXID-DebugBar/tree/master/Core/DebugBar/Elements).
 
 
 # Changelog
@@ -63,6 +76,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2018-02-20
+### Added
+- Theme-Auswahl
+- 4 DebugBar-Themes
+- Möglichkeit zur Integration von Tabs durch Dritt-Module
+- Renderer um eine Methode zur Erstellung einer Tabelle auf Basis ```\OxidEsales\Eshop\Core\Model\ListModel``` hinzugefügt
+
+### Changed
+- Table-Wrapper im Renderer in eigene Methode ausgelagert
+
+## [1.0.1] - 2018-02-02
+### Changed
+- Update Composer-Name und Lizenz
+
 ## [1.0.0] - 2018-02-02
 ### Added
 - Erste Version der OXID-DebugBar
@@ -70,3 +97,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 - Readme angepasst
 
+
+[1.1.0]: https://github.com/FlorianPalme/OXID-DebugBar/releases/tag/1.1.0
+[1.0.1]: https://github.com/FlorianPalme/OXID-DebugBar/releases/tag/1.0.1
+[1.0.0]: https://github.com/FlorianPalme/OXID-DebugBar/releases/tag/1.0.0
