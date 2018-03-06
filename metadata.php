@@ -61,5 +61,11 @@ $aModule = [
             'value' => 'default',
             'constraints' => 'default|forrest|plum|fortressofsolitude|herbs',
         ],
+        [
+            'group' => 'debugbarMain',
+            'name' => 'debugbarTrustedIps',
+            'type' => 'arr',
+            'value' => [],
+        ],
     ],
 ];

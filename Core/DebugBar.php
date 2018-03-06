@@ -10,8 +10,10 @@ namespace FlorianPalme\DebugBar\Core;
 use FlorianPalme\DebugBar\Core\DebugBar\Elements;
 use FlorianPalme\DebugBar\Core\DebugBar\Renderer;
 use FlorianPalme\DebugBar\Core\DebugBar\Tabber;
+use FlorianPalme\DebugBar\Core\DebugBar\Utils;
 use OxidEsales\Eshop\Core\Module\Module;
 use OxidEsales\Eshop\Core\Module\ModuleList;
+use OxidEsales\Eshop\Core\Registry;
 
 class DebugBar
 {
@@ -124,6 +126,15 @@ class DebugBar
      */
     public function render()
     {
-        return $this->getElementsTabber()->render();
+        // Prüfen, ob's gerendet werden darf
+        /** @var Utils $utils */
+        $utils = oxNew(Utils::class);
+        $trustedIps = (array) Registry::getConfig()->getShopConfVar('debugbarTrustedIps', null, 'module:fpdebugbar');
+
+        if (!count($trustedIps) || in_array($utils->getUserIp(), $trustedIps)) {
+            return $this->getElementsTabber()->render();
+        }
+
+        return '';
     }
 }
