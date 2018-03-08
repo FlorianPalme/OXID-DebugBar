@@ -26,6 +26,9 @@ $aModule = [
     'extend'       => [
         \OxidEsales\Eshop\Core\UtilsView::class
             => \FlorianPalme\DebugBar\Core\UtilsView::class,
+
+        \OxidEsales\Eshop\Core\Config::class
+            => \FlorianPalme\DebugBar\Core\Config::class,
     ],
 
     'controllers' => [

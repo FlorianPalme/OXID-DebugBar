@@ -129,7 +129,10 @@ class DebugBar
         // Prüfen, ob's gerendet werden darf
         /** @var Utils $utils */
         $utils = oxNew(Utils::class);
-        $trustedIps = (array) Registry::getConfig()->getShopConfVar('debugbarTrustedIps', null, 'module:fpdebugbar');
+        /** @var Config $config */
+        $config = Registry::getConfig();
+
+        $trustedIps = $config->getDebugBarConfigTrustedIps();
 
         if (!count($trustedIps) || in_array($utils->getUserIp(), $trustedIps)) {
             return $this->getElementsTabber()->render();
