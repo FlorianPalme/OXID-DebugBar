@@ -129,15 +129,22 @@ class DebugBar
         // Prüfen, ob's gerendet werden darf
         /** @var Utils $utils */
         $utils = oxNew(Utils::class);
-        /** @var Config $config */
-        $config = Registry::getConfig();
-
-        $trustedIps = $config->getDebugBarConfigTrustedIps();
+        $trustedIps = $this->getTrustedIps();
 
         if (!count($trustedIps) || in_array($utils->getUserIp(), $trustedIps)) {
             return $this->getElementsTabber()->render();
         }
 
         return '';
+    }
+
+    /**
+     * @return array
+     */
+    protected function getTrustedIps()
+    {
+        /** @var Config $config */
+        $config = Registry::getConfig();
+        return $config->getDebugBarConfigTrustedIps();
     }
 }
