@@ -10,4 +10,5 @@ $aLang = array(
     'SHOP_MODULE_debugbarTheme_plum' => 'Plum',
     'SHOP_MODULE_debugbarTheme_fortressofsolitude' => 'Fortress of Solitude',
     'SHOP_MODULE_debugbarTheme_herbs' => 'Herbs',
+    'SHOP_MODULE_debugbarTrustedIps' => 'Anzeige auf IP begrenzen',
 );

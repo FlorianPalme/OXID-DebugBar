@@ -161,7 +161,7 @@ TABLE;
             } elseif ($param === true) {
                 $row .= '<i>true</i>';
             } else {
-                $row .= $param;
+                $row .= '<i>unknown</i>';
             }
 
             $row .= "</td></tr>";

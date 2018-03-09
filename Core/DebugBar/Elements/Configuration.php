@@ -177,8 +177,10 @@ class Configuration implements Element
             'phpversion'
         );
 
+        $phpIntSize = $this->getPhpIntSize();
+
         // BIT Version
-        switch(PHP_INT_SIZE) {
+        switch($phpIntSize) {
             case 8:
                 $bitVersion = 64 . ' <span>' . $lang->translateString('FP_DEBUGBAR_TABS_CONFIGURATION_PHP_BITVERSION_BIT') . '</span>';
                 break;
@@ -229,5 +231,13 @@ class Configuration implements Element
 
         return $html;
 
+    }
+
+    /**
+     * @return int
+     */
+    protected function getPhpIntSize()
+    {
+        return PHP_INT_SIZE;
     }
 }

@@ -138,7 +138,7 @@ class Tabber
      * @param bool $isFirstTab
      * @return string
      */
-    protected function renderTab(Tab $tab, $isFirstTab)
+    protected function renderTab(Tab $tab, $isFirstTab = false)
     {
         $class = $tab->getKey();
 
@@ -177,7 +177,7 @@ class Tabber
      * @param bool $isFirstContent
      * @return string
      */
-    protected function renderContent(Tab $tab, $isFirstContent)
+    protected function renderContent(Tab $tab, $isFirstContent = false)
     {
         $class = 'content ' . $tab->getKey();
 

@@ -4,6 +4,7 @@
  * @package DebugBar
  */
 
+
 /**
  * Smarty function
  * -------------------------------------------------------------
@@ -11,19 +12,20 @@
  * add [{fp_debug_var}]
  * -------------------------------------------------------------
  *
- * @param array  $aParams  parameters to process
+ * @param array $aParams parameters to process
  * @param smarty &$oSmarty smarty object
  *
  * @return string
+ * @throws oxFileException
  */
 function smarty_function_fp_debug_bar_inccss($params, &$smarty)
 {
     /** @var \OxidEsales\Eshop\Core\ViewConfig $viewConf */
     $viewConf = \OxidEsales\Eshop\Core\Registry::get(\OxidEsales\Eshop\Core\ViewConfig::class);
 
-    /** @var \OxidEsales\Eshop\Core\Config $config */
+    /** @var FlorianPalme\DebugBar\Core\Config $config */
     $config = \OxidEsales\Eshop\Core\Registry::get(\OxidEsales\Eshop\Core\Config::class);
-    $theme = $config->getShopConfVar('debugbarTheme', null, 'module:fpdebugbar');
+    $theme = $config->getDebugBarConfigTheme();
 
     $styles = [
         'https://fonts.googleapis.com/icon?family=Material+Icons',

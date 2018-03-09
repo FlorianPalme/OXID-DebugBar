@@ -26,6 +26,9 @@ $aModule = [
     'extend'       => [
         \OxidEsales\Eshop\Core\UtilsView::class
             => \FlorianPalme\DebugBar\Core\UtilsView::class,
+
+        \OxidEsales\Eshop\Core\Config::class
+            => \FlorianPalme\DebugBar\Core\Config::class,
     ],
 
     'controllers' => [
@@ -60,6 +63,12 @@ $aModule = [
             'type' => 'select',
             'value' => 'default',
             'constraints' => 'default|forrest|plum|fortressofsolitude|herbs',
+        ],
+        [
+            'group' => 'debugbarMain',
+            'name' => 'debugbarTrustedIps',
+            'type' => 'arr',
+            'value' => [],
         ],
     ],
 ];
