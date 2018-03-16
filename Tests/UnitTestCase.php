@@ -8,8 +8,27 @@ declare(strict_types=1);
 namespace FlorianPalme\DebugBar\Tests;
 
 
+use OxidEsales\Eshop\Core\Registry;
+
 class UnitTestCase extends \OxidEsales\TestingLibrary\UnitTestCase
 {
+
+    /**
+     * @inheritdoc
+     */
+    protected function setUp()
+    {
+        parent::setUp();
+
+        // Neu setzen überladener Klassen
+        $utilsView = oxNew(\OxidEsales\Eshop\Core\UtilsView::class);
+        Registry::set(\OxidEsales\Eshop\Core\UtilsView::class, $utilsView);
+
+        $config = oxNew(\OxidEsales\Eshop\Core\Config::class);
+        $config->init();
+        Registry::set(\OxidEsales\Eshop\Core\Config::class, $config);
+    }
+
     /**
      * @param $obj
      * @param $method
