@@ -17,4 +17,5 @@ before_script:
   - sh ./.travis.before_script.sh
 
 script:
-  - ./OXID/vendor/bin/runtests
+  - cd ~/OXID/
+  - ./vendor/bin/runtests
