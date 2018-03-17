@@ -15,4 +15,4 @@ sed -i -e "s@run_tests_for_shop: true@run_tests_for_shop: false@g" test_config.y
 
 # DebugBar Registrieren
 composer config repositories.florianpalme/oxid-debugbar vcs ${TRAVIS_BUILD_DIR}
-composer require florianpalme/oxid-debugbar:dev-${TRAVIS_BRANCH}
+composer require "florianpalme/oxid-debugbar:dev-${BRANCH}#${TRAVIS_COMMIT}"
