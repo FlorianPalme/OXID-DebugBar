@@ -1,4 +1,4 @@
-# OXID-DebugBar
+# OXID-DebugBar [![Build Status](https://travis-ci.org/FlorianPalme/OXID-DebugBar.svg?branch=master)](https://travis-ci.org/FlorianPalme/OXID-DebugBar)
 
 Implementiert eine DebugBar in den OXID Shop.
 
