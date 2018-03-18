@@ -76,6 +76,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2018-03-18
+### Added
+- Unittests
+- Travis-Integration
+- #3 Anzeigen-Begrenzung auf IP integriert
+
+### Changed
+- Auslesen der Config-Einstellungen in Core\Config ausgelagert
+
+
 ## [1.1.0] - 2018-02-20
 ### Added
 - Theme-Auswahl
@@ -86,9 +96,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 - Table-Wrapper im Renderer in eigene Methode ausgelagert
 
+
 ## [1.0.1] - 2018-02-02
 ### Changed
 - Update Composer-Name und Lizenz
+
 
 ## [1.0.0] - 2018-02-02
 ### Added
@@ -98,6 +110,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Readme angepasst
 
 
+[1.2.0]: https://github.com/FlorianPalme/OXID-DebugBar/releases/tag/1.2.0
 [1.1.0]: https://github.com/FlorianPalme/OXID-DebugBar/releases/tag/1.1.0
 [1.0.1]: https://github.com/FlorianPalme/OXID-DebugBar/releases/tag/1.0.1
 [1.0.0]: https://github.com/FlorianPalme/OXID-DebugBar/releases/tag/1.0.0
