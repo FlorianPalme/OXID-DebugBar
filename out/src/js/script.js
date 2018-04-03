@@ -2,22 +2,70 @@ var OXIDDebugBar = {
     $debugbar: null,
     $tabs: null,
     $contents: null,
+    profileId: null,
+    $wrapper: null,
 
     /**
-     * Init der DebugBar
+     * Init der Debugbar
      */
     init: function(){
         var self = this;
 
         $(function(){
-            self.$debugbar = $('#oxiddebugbar');
-            self.$tabs = self.$debugbar.find('> .tabs > li:not(.close)');
-            self.$contents = self.$debugbar.find('> .contents');
+            self.$wrapper = $('#oxiddebugbar_wrapper');
+            self.profileId = self.$wrapper.data('id');
 
-            self.initTabs();
-            self.initContentTabs();
-            self.initProfiler();
+            var baseUrl = sBaseUrl.replace(/&amp;/g, '&');
+
+            $.ajax(baseUrl + 'cl=fpdebugbar_getprofile&profileid=' + self.profileId, {
+                success: function (data) {
+                    self.handleRequestSuccess(data);
+                }
+            });
         });
+    },
+
+    /**
+     * Request der Init-Ajax-Funktion handeln
+     */
+    handleRequestSuccess: async function (data) {
+        var self = this;
+
+        $(data.styles).each(function () {
+            $('header').append(
+                '<link rel="stylesheet" type="text/css" href="' + this + '" />'
+            );
+        });
+
+        await self.sleep(100);
+
+        self.$wrapper.append(data.profile);
+
+        self.initProfile();
+    },
+
+    /**
+     * Einfache Sleep-Funktion
+     *
+     * @returns {Promise<any>}
+     */
+    sleep: function(ms){
+        return new Promise(resolve => setTimeout(resolve, ms));  
+    },
+
+    /**
+     * Init des Profils
+     */
+    initProfile: function(){
+        var self = this;
+
+        self.$debugbar = $('#oxiddebugbar');
+        self.$tabs = self.$debugbar.find('> .tabs > li:not(.close)');
+        self.$contents = self.$debugbar.find('> .contents');
+
+        self.initTabs();
+        self.initContentTabs();
+        self.initProfiler();
     },
 
     /**

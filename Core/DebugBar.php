@@ -8,6 +8,8 @@ namespace FlorianPalme\DebugBar\Core;
 
 
 use FlorianPalme\DebugBar\Core\DebugBar\Elements;
+use FlorianPalme\DebugBar\Core\DebugBar\Profile;
+use FlorianPalme\DebugBar\Core\DebugBar\ProfileRotate;
 use FlorianPalme\DebugBar\Core\DebugBar\Renderer;
 use FlorianPalme\DebugBar\Core\DebugBar\Tabber;
 use FlorianPalme\DebugBar\Core\DebugBar\Utils;
@@ -17,20 +19,14 @@ use OxidEsales\Eshop\Core\Registry;
 
 class DebugBar
 {
-    /**
-     * Array aller Elemente der DebugBar
-     *
-     * @var array
-     */
+    /** @var array Array aller Elemente der DebugBar */
     protected $elements;
 
-    /**
-     * Element-Tabber
-     *
-     * @var Tabber
-     */
+    /** @var Tabber Element-Tabber */
     protected $tabber;
 
+    /** @var Profile Aktuelles Profil-Objekt */
+    protected $profile;
 
     /**
      * Gibt die Elemente der Debugbar zurück
@@ -146,5 +142,40 @@ class DebugBar
         /** @var Config $config */
         $config = Registry::getConfig();
         return $config->getDebugBarConfigTrustedIps();
+    }
+
+
+    /**
+     * Schreibt die gerenderte DebugBar in ein HTML-File
+     */
+    public function write()
+    {
+        /** @var Config $config */
+        $config = Registry::getConfig();
+
+        $profile = $this->getCurrentProfile();
+        $profile->saveDebugBarHTML($this->render());
+
+        /** @var ProfileRotate $rotate */
+        $rotate = oxNew(ProfileRotate::class);
+        $rotate
+            ->setPath($config->getDeubgBarProfileDir())
+            ->setRegex('/(profile_\d*_.*)\.html/')
+            ->setMaxFiles($config->getDebugBarConfigMaxProfiles())
+            ->rotate();
+    }
+
+    /**
+     * Gibt das aktuelle Profile-Objekt zurück
+     *
+     * @return Profile
+     */
+    public function getCurrentProfile(): Profile
+    {
+       if ($this->profile === null) {
+           $this->profile = oxNew(Profile::class);
+       }
+
+       return $this->profile;
     }
 }
