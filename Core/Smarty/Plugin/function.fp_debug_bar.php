@@ -12,14 +12,16 @@
  * -------------------------------------------------------------
  *
  * @param array  $aParams  parameters to process
- * @param smarty &$oSmarty smarty object
+ * @param \Smarty &$oSmarty smarty object
  *
  * @return string
  */
 function smarty_function_fp_debug_bar($params, &$smarty)
 {
     /** @var \FlorianPalme\DebugBar\Core\DebugBar $debugBar */
-    $debugBar = oxNew(\FlorianPalme\DebugBar\Core\DebugBar::class);
+    $debugBar = \OxidEsales\Eshop\Core\Registry::get(\FlorianPalme\DebugBar\Core\DebugBar::class);
+    $profile = $debugBar->getCurrentProfile();
+    $id = $profile->getProfileId();
 
-    return $debugBar->render();
+    $smarty->assign('debugbarProfileId', $id);
 }

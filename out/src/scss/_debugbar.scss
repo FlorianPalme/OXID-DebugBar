@@ -134,6 +134,14 @@
           display:none;
         } // &:before, &:after
       } // &.close
+
+      &.profile_select {
+        float:right;
+
+        select {
+            color:$base-color;
+        } // select
+      } // &.profile_select
     } // > li
   } // > .tabs
 

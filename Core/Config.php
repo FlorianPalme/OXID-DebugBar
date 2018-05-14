@@ -26,4 +26,22 @@ class Config extends Config_parent
     {
         return (string) $this->getShopConfVar('debugbarTheme', null, 'module:fpdebugbar') ?: 'default';
     }
+
+    /**
+     * @return int
+     */
+    public function getDebugBarConfigMaxProfiles(): int
+    {
+        return (int) $this->getShopConfVar('debugbarMaxProfiles', null, 'module:fpdebugbar') ?: 30;
+    }
+
+    /**
+     * Gibt den Pfad zum Profile-Dir zurück, in welchem die gespeicherten Profile liegen
+     *
+     * @return string
+     */
+    public function getDeubgBarProfileDir()
+    {
+        return $this->getConfigParam('sCompileDir') . '/debugbar';
+    }
 }

@@ -29,9 +29,13 @@ $aModule = [
 
         \OxidEsales\Eshop\Core\Config::class
             => \FlorianPalme\DebugBar\Core\Config::class,
+
+        \OxidEsales\Eshop\Core\ShopControl::class
+            => \FlorianPalme\DebugBar\Core\ShopControl::class,
     ],
 
     'controllers' => [
+        'fpdebugbar_getprofile' => \FlorianPalme\DebugBar\Application\Controller\GetProfileController::class,
     ],
 
     'events'       => [
@@ -47,12 +51,6 @@ $aModule = [
             'template' => 'layout/base.tpl',
             'block' => 'base_js',
             'file' => 'Application/views/tpl/layout/base/js.tpl',
-        ],
-
-        [
-            'template' => 'layout/base.tpl',
-            'block' => 'head_css',
-            'file' => 'Application/views/tpl/layout/base/head_css.tpl',
         ]
     ],
 
@@ -69,6 +67,12 @@ $aModule = [
             'name' => 'debugbarTrustedIps',
             'type' => 'arr',
             'value' => [],
+        ],
+        [
+            'group' => 'debugbarMain',
+            'name' => 'debugbarMaxProfiles',
+            'type' => 'str',
+            'value' => 30,
         ],
     ],
 ];
