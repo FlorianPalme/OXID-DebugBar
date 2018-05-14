@@ -76,7 +76,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [1.3.0] - unreleased
+## [1.3.0] - 2018-05-14
 ### Added
 - Generierte DebugBar's werden nun abgespeichert, so dass Sie später erneut angesehen werden können
 - Auswahlmöglichkeit des angezeigten Bericht's im Frontend
@@ -118,6 +118,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Readme angepasst
 
 
+[1.3.0]: https://github.com/FlorianPalme/OXID-DebugBar/releases/tag/1.3.0
 [1.2.0]: https://github.com/FlorianPalme/OXID-DebugBar/releases/tag/1.2.0
 [1.1.0]: https://github.com/FlorianPalme/OXID-DebugBar/releases/tag/1.1.0
 [1.0.1]: https://github.com/FlorianPalme/OXID-DebugBar/releases/tag/1.0.1
