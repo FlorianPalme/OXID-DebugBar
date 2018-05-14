@@ -19,7 +19,7 @@ var OXIDDebugBar = {
 
             $.ajax(baseUrl + 'cl=fpdebugbar_getprofile&profileid=' + self.profileId, {
                 success: function (data) {
-                    self.handleRequestSuccess(data);
+                    self.handleRequestSuccess(data, true);
                 }
             });
         });
@@ -28,16 +28,18 @@ var OXIDDebugBar = {
     /**
      * Request der Init-Ajax-Funktion handeln
      */
-    handleRequestSuccess: async function (data) {
+    handleRequestSuccess: async function (data, addStyles) {
         var self = this;
 
-        $(data.styles).each(function () {
-            $('header').append(
-                '<link rel="stylesheet" type="text/css" href="' + this + '" />'
-            );
-        });
+        if (addStyles) {
+            $(data.styles).each(function () {
+                $('header').append(
+                    '<link rel="stylesheet" type="text/css" href="' + this + '" />'
+                );
+            });
 
-        await self.sleep(100);
+            await self.sleep(100);
+        }
 
         self.$wrapper.append(data.profile);
 
@@ -60,7 +62,7 @@ var OXIDDebugBar = {
         var self = this;
 
         self.$debugbar = $('#oxiddebugbar');
-        self.$tabs = self.$debugbar.find('> .tabs > li:not(.close)');
+        self.$tabs = self.$debugbar.find('> .tabs > li:not(.close, .profile_select)');
         self.$contents = self.$debugbar.find('> .contents');
 
         self.initTabs();
@@ -111,6 +113,20 @@ var OXIDDebugBar = {
         self.$debugbar.find('> .tabs > li.close').on('click', function(){
             self.$contents.find('> .content:visible').slideUp(400, function(){
                 self.$tabs.removeClass('active');
+            });
+        });
+
+        self.$debugbar.find('> .tabs > li.profile_select').on('change', 'select', function(){
+            self.$wrapper = $('#oxiddebugbar_wrapper');
+            self.$wrapper.html('');
+            self.profileId = self.$wrapper.data('id');
+
+            var baseUrl = sBaseUrl.replace(/&amp;/g, '&');
+
+            $.ajax(baseUrl + 'cl=fpdebugbar_getprofile&profileid=' + $(this).val(), {
+                success: function (data) {
+                    self.handleRequestSuccess(data, false);
+                }
             });
         });
     },

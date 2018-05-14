@@ -125,6 +125,7 @@ class Tabber
 
         if (!$this->isContentTabber) {
             $tabs[] = "<li class='close'><i class='material-icons'>clear</i></li>";
+            $tabs[] = "%CHOOSE_PROFILE%";
         }
 
         return implode('', $tabs);

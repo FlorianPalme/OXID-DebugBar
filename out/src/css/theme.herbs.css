@@ -121,6 +121,10 @@
           background: none; }
         #oxiddebugbar > .tabs > li.close:before, #oxiddebugbar > .tabs > li.close:after {
           display: none; }
+      #oxiddebugbar > .tabs > li.profile_select {
+        float: right; }
+        #oxiddebugbar > .tabs > li.profile_select select {
+          color: #3c3c3c; }
   #oxiddebugbar.open > .tabs > li.close {
     display: block; }
   #oxiddebugbar > .contents > .content {

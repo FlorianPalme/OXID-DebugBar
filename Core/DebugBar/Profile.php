@@ -20,6 +20,7 @@ class Profile
      * @param string $html
      *
      * @return bool
+     * @throws \oxSystemComponentException
      */
     public function saveDebugBarHTML(string $html): bool
     {
@@ -30,6 +31,7 @@ class Profile
      * Gibt den Pfad zur HTML-Datei zurück
      *
      * @return string
+     * @throws \oxSystemComponentException
      */
     public function getFilePath(): string
     {
@@ -40,6 +42,7 @@ class Profile
      * Gibt das HTML der zuvor gespeicherten DebugBar zurück
      *
      * @return string
+     * @throws \oxSystemComponentException
      */
     public function getDebugBarHTML(): string
     {
@@ -79,6 +82,7 @@ class Profile
      * Gibt den Pfad zum Speicher-Ort der Profile zurück
      *
      * @return string
+     * @throws \oxSystemComponentException
      */
     protected function getSaveDir(): string
     {
@@ -95,6 +99,7 @@ class Profile
      * Prüft, ob das gewünschte Profil existiert
      *
      * @return bool
+     * @throws \oxSystemComponentException
      */
     public function exists(): bool
     {

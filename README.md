@@ -76,6 +76,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - unreleased
+### Added
+- Generierte DebugBar's werden nun abgespeichert, so dass Sie später erneut angesehen werden können
+- Auswahlmöglichkeit des angezeigten Bericht's im Frontend
+
+### Changed
+- Generierung der DebugBar an die letztmögliche Stelle in der OXID-Ausführung
+
 ## [1.2.0] - 2018-03-18
 ### Added
 - Unittests

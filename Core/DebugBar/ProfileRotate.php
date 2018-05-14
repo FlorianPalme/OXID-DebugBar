@@ -66,6 +66,24 @@ class ProfileRotate
      */
     public function rotate()
     {
+        $foundFiles = $this->getProfiles();
+
+        // Nicht mehr benötigte löschen
+        $sliceLength = count($foundFiles) - $this->maxFiles ?: count($foundFiles);
+        $sliced = array_slice($foundFiles, 0, $sliceLength);
+
+        foreach ($sliced as $file) {
+            unlink($this->path . '/' . $file);
+        }
+    }
+
+    /**
+     * Sucht und gibt alle gefundenen Profile zurück
+     *
+     * @return array
+     */
+    public function getProfiles()
+    {
         $files = new \DirectoryIterator($this->path);
         $foundFiles = [];
 
@@ -80,12 +98,6 @@ class ProfileRotate
         // Nach Zeit sortieren
         ksort($foundFiles);
 
-        // Nicht mehr benötigte löschen
-        $sliceLength = count($foundFiles) - $this->maxFiles ?: count($foundFiles);
-        $sliced = array_slice($foundFiles, 0, $sliceLength);
-
-        foreach ($sliced as $file) {
-            unlink($this->path . '/' . $file);
-        }
+        return $foundFiles;
     }
 }

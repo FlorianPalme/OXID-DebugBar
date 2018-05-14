@@ -150,19 +150,22 @@ class DebugBar
      */
     public function write()
     {
-        /** @var Config $config */
-        $config = Registry::getConfig();
+        try {
+            /** @var Config $config */
+            $config = Registry::getConfig();
 
-        $profile = $this->getCurrentProfile();
-        $profile->saveDebugBarHTML($this->render());
+            $profile = $this->getCurrentProfile();
+            $profile->saveDebugBarHTML($this->render());
 
-        /** @var ProfileRotate $rotate */
-        $rotate = oxNew(ProfileRotate::class);
-        $rotate
-            ->setPath($config->getDeubgBarProfileDir())
-            ->setRegex('/(profile_\d*_.*)\.html/')
-            ->setMaxFiles($config->getDebugBarConfigMaxProfiles())
-            ->rotate();
+            /** @var ProfileRotate $rotate */
+            $rotate = oxNew(ProfileRotate::class);
+            $rotate
+                ->setPath($config->getDeubgBarProfileDir())
+                ->setRegex('/(profile_\d*_.*)\.html/')
+                ->setMaxFiles($config->getDebugBarConfigMaxProfiles())
+                ->rotate();
+        } catch (\Exception $e) {
+        }
     }
 
     /**
