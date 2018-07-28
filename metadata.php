@@ -32,6 +32,9 @@ $aModule = [
 
         \OxidEsales\Eshop\Core\ShopControl::class
             => \FlorianPalme\DebugBar\Core\ShopControl::class,
+
+        \OxidEsales\Eshop\Core\Language::class
+            => \FlorianPalme\DebugBar\Core\Language::class,
     ],
 
     'controllers' => [
