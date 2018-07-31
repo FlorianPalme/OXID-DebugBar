@@ -25,7 +25,15 @@ class Translations implements Element
      */
     public function getTitle()
     {
-        return Registry::getLang()->translateString('FP_DEBUGBAR_TABS_TRANSLATIONS');
+        $title = Registry::getLang()->translateString('FP_DEBUGBAR_TABS_TRANSLATIONS');
+
+        /** @var Language $lang */
+        $lang = Registry::getLang();
+        if ($missingTranslations = count($lang->getDebugbarMissingTranslations())) {
+            $title .= '<span class="badge badge-error missing">' . $missingTranslations . '</span>';
+        }
+
+        return $title;
     }
 
     /**
@@ -94,11 +102,17 @@ class Translations implements Element
      */
     protected function modifyTranslationsArrayForDisplay($lang): array
     {
+        $language = Registry::getLang();
         if ($lang['adminMode']) {
-            $lang['adminMode'] = Registry::getLang()->translateString('FP_DEBUGBAR_YES');
+            $lang['adminMode'] = $language->translateString('FP_DEBUGBAR_YES');
         } else {
-            $lang['adminMode'] = Registry::getLang()->translateString('FP_DEBUGBAR_NO');
+            $lang['adminMode'] = $language->translateString('FP_DEBUGBAR_NO');
         }
+
+        $lang['called'] .= ' <span class="view-calls">[' . $language->translateString('FP_DEBUGBAR_VIEW') . ']</span>';
+        $lang['called'] .= '<div class="calls-container"><pre>' . implode("\r\n\r\n", $lang['backtraces']) . '</pre></div>';
+
+        unset($lang['backtraces']);
 
         return $lang;
     }

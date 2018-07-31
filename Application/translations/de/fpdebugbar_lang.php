@@ -105,6 +105,6 @@ $aLang = array(
 
     'FP_DEBUGBAR_YES' => 'Ja',
     'FP_DEBUGBAR_NO' => 'Nein',
-
+    'FP_DEBUGBAR_VIEW' => 'Ansehen',
     'FP_DEBUGBAR_NA' => 'n/a',
 );

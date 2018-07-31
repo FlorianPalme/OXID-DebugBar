@@ -122,6 +122,22 @@
         float: right; }
         #oxiddebugbar > .tabs > li.profile_select select {
           color: #0B3C5D; }
+      #oxiddebugbar > .tabs > li .badge {
+        display: inline-block;
+        min-width: 10px;
+        padding: 3px 7px;
+        font-size: 12px;
+        font-weight: bold;
+        color: #fff;
+        line-height: 1;
+        vertical-align: middle;
+        white-space: nowrap;
+        text-align: center;
+        background-color: #777;
+        border-radius: 10px;
+        margin-left: 10px; }
+        #oxiddebugbar > .tabs > li .badge.badge-error {
+          background-color: #dc3545; }
   #oxiddebugbar.open > .tabs > li.close {
     display: block; }
   #oxiddebugbar > .contents > .content {
@@ -265,6 +281,10 @@
             color: #0B3C5D; }
       #oxiddebugbar > .contents > .content .profiler .profile:hover .bars span {
         min-width: 160px; }
+    #oxiddebugbar > .contents > .content.translations .view-calls {
+      cursor: pointer; }
+    #oxiddebugbar > .contents > .content.translations .calls-container {
+      display: none; }
   #oxiddebugbar .clearfix::after {
     display: block;
     content: "";

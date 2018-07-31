@@ -68,6 +68,7 @@ var OXIDDebugBar = {
         self.initTabs();
         self.initContentTabs();
         self.initProfiler();
+        self.initTranslationCalls();
     },
 
     /**
@@ -101,7 +102,7 @@ var OXIDDebugBar = {
 
             // Contents einblenden
             if (self.$contents.find(':visible').length === 0) {
-                console.log(self.$contents.find('[data-content="' + key + '"]'));
+                //console.log(self.$contents.find('[data-content="' + key + '"]'));
                 // Nichts eingeblendet.. also sliden wir das erste ein
                 self.$contents.find('[data-content="' + key + '"]').slideDown(400);
             } else {
@@ -150,6 +151,23 @@ var OXIDDebugBar = {
 
             $contents.find('> .content').removeClass('active');
             $content.addClass('active');
+        });
+    },
+
+    /**
+     * Handling der Anzeige der Übersetzungs-Calls
+     */
+    initTranslationCalls: function(){
+        var self = this;
+
+        self.$contents.find('> .content.translations').on('click', '.view-calls', function(){
+           $container = $(this).find('+ .calls-container');
+
+           if ($container.is(':visible')) {
+               $container.hide();
+           } else {
+               $container.show();
+           }
         });
     }
 };

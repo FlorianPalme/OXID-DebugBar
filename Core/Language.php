@@ -29,12 +29,19 @@ class Language extends Language_parent
                     'lang' => $iLang,
                     'adminMode' => $blAdminMode,
                     'called' => 1,
+                    'backtraces' => [],
                 ];
 
                 $this->debugbarMissingTranslations[$sStringToTranslate] = $data;
             } else {
                 $this->debugbarMissingTranslations[$sStringToTranslate]['called']++;
             }
+
+            ob_start();
+            debug_print_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 5);
+            $backtrace = ob_get_clean();
+
+            $this->debugbarMissingTranslations[$sStringToTranslate]['backtraces'][] = $backtrace;
         }
 
         return $translatedString;
