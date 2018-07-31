@@ -111,6 +111,7 @@ class DebugBar
             'performance' => Elements\Performance::class,
             'configuration' => Elements\Configuration::class,
             'modules' => Elements\Modules::class,
+            'translations' => Elements\Translations::class,
         ];
     }
 

@@ -71,7 +71,7 @@ final class DebugBarTest extends UnitTestCase
 
         $elements = $this->callMethod($debugbar, 'getDefaultElements');
 
-        $this->assertEquals(4, count($elements));
+        $this->assertEquals(5, count($elements));
     }
 
     /**
