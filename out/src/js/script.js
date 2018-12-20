@@ -33,9 +33,22 @@ var OXIDDebugBar = {
 
         if (addStyles) {
             $(data.styles).each(function () {
-                $('header').append(
-                    '<link rel="stylesheet" type="text/css" href="' + this + '" />'
-                );
+                var $header;
+                if( $('header').length )
+                {
+                    $header = $('header');
+                }
+                else if( $('#header').length )
+                {
+                    $header = $('#header');
+                }
+
+                if( $header )
+                {
+                    $($header).append(
+                        '<link rel="stylesheet" type="text/css" href="' + this + '" />'
+                    );
+                }
             });
 
             await self.sleep(100);
