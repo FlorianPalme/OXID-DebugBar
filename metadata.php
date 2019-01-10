@@ -19,7 +19,7 @@ $aModule = [
     'title'        => '<span style="color:#d35400;font-weight:bold;">{</span>FP<span style="color:#d35400;font-weight:bold;">}</span> DebugBar',
     'description'  => 'Integriert eine erweiterbare DebugBar in den OXID eShop, nach Vorbild des Symfony Web Profilers',
     'thumbnail'    => 'logo.png',
-    'version'      => '1.4.0',
+    'version'      => '1.4.1',
     'author'       => 'Florian Palme',
     'url'          => 'http://www.florian-palme.de',
     'email'        => 'info@florian-palme.de',
